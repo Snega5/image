@@ -1,0 +1,21 @@
+import torch
+from diffusers import StableDiffusionPipeline
+
+# 1. Load Pre-trained Stable Diffusion Model
+model_id = "runwayml/stable-diffusion-v1-5"
+pipe = StableDiffusionPipeline.from_pretrained(model_id)
+pipe = pipe.to("cuda") if torch.cuda.is_available() else pipe.to("cpu")
+
+# 2. Function to Generate Image from Text Prompt
+def generate_image(prompt):
+    image = pipe(prompt).images[0]
+    image.save("generated_image.png")
+    return image
+
+# 3. Ask for User Input and Generate the Image
+if __name__ == "__main__":
+    prompt = input("Enter your text prompt: ")
+    print("Generating image...")
+    image = generate_image(prompt)
+    image.show()
+    print("Image saved as 'generated_image.png'")
