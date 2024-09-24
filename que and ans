@@ -8,7 +8,7 @@ from langchain.prompts import PromptTemplate
 from langchain.llms.base import LLM
 
 # 1. Setup Gemini Pro API
-API_KEY = 'your_gemini_pro_api_key'
+API_KEY = AIzaSyBzUi4AFJL-yDEGj7kLEOAc1Q_7bPZ72dA
 API_ENDPOINT = 'https://api.geminivisionpro.com/v1/generate'
 
 class GeminiProLLM(LLM):
